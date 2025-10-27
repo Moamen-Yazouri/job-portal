@@ -4,7 +4,7 @@ import { setupCache } from "axios-cache-interceptor";
 
 export const api = setupCache(
   axios.create({
-    baseURL: "https://68f8f8e8deff18f212b83fba.mockapi.io",
+    baseURL: "https://68fb3f0394ec960660253db2.mockapi.io",
     timeout: 10000,
   }),
   {
