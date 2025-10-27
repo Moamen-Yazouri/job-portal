@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import { jobs } from "./constants";
 import JobCard from "./featureCard";
 import type { IJobFromAPI, TJobForDisplay } from "~/@types";
 import { mapJobsToDisplay } from "~/_components/job/utils/resMapper.util";
