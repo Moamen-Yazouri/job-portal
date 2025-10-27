@@ -3,7 +3,7 @@ import type { IJobFromAPI, TJobForDisplay } from "~/@types";
 export function mapJobToDisplay(res: IJobFromAPI): TJobForDisplay {
   return {
     id: res.id,
-    title: res.title ?? res.jobTitle ?? "Untitled",
+    title: res.title ? res.title : "Untitled",
     company: res.company ?? res.companyName ?? "",
     location: res.location ?? res.jobLocation ?? "",
     type: res.type ?? res.jobType ?? "",
@@ -15,5 +15,5 @@ export function mapJobToDisplay(res: IJobFromAPI): TJobForDisplay {
 }
 
 export function mapJobsToDisplay(res: IJobFromAPI[]): TJobForDisplay[] {
-  return res.map(mapJobToDisplay);
+  return res.map((item) => mapJobToDisplay(item));
 }
