@@ -4,12 +4,8 @@ import InputField from "./InputField";
 import SelectField from "./SelectField";
 import SubmitButton from "./SubmitButton";
 import TextAreaField from "./TextAreaField";
-import { CategoryContext } from "~/provider/category/categoryContext";
-import { buildCategoryIndex } from "../landing/popular/cats.utils";
-import { mapFormToJobForSend } from "./form.utils";
+
 import { JOB_CATEGORIES, JOB_TYPES } from "./constants";
-import { createJob } from "./service/createJob";
-import { toast } from "sonner";
 import useForm from "./hook/useForm";
 
 
