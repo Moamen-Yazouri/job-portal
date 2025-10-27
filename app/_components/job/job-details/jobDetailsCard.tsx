@@ -51,13 +51,15 @@ const JobDetailsCard = ({
           <h2 className="text-2xl font-semibold text-gray-800 mt-8 mb-3">Job Description</h2>
           <p className="text-gray-700 leading-relaxed mb-6">{description}</p>
 
-          <h2 className="text-2xl font-semibold text-gray-800 mb-2 mt-8">Requirements</h2>
-          {requirements && (
-            <ul className="list-disc list-inside text-gray-700 space-y-2 mb-8">
-              {requirements?.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
+          {requirements && requirements.length > 0 &&  (
+            <>
+              <h2 className="text-2xl font-semibold text-gray-800 mb-2 mt-8">Requirements</h2>
+              <ul className="list-disc list-inside text-gray-700 space-y-2 mb-8">
+                {requirements?.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </>
           )}
         </div>
       </>

@@ -4,7 +4,7 @@ import JobCard from "./featureCard";
 import type { IJobFromAPI, TJobForDisplay } from "~/@types";
 import { mapJobsToDisplay } from "~/_components/job/utils/resMapper.util";
 import FullPageLoader from "~/_components/full-page-loader/fullPageLoader";
-import { api } from "api/api";
+import { apiJobs } from "api/api";
 import { toast } from "sonner";
 import { JobContext } from "~/provider/job/jobContext";
 
@@ -21,7 +21,7 @@ const AllFeatures = () => {
       try {
         setLoading(true);
 
-        const { data } = await api.get<IJobFromAPI[]>(
+        const { data } = await apiJobs.get<IJobFromAPI[]>(
           "/jobs",
         );
 

@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { mapJobToDisplay } from "../utils/resMapper.util";
 import FullPageLoader from "~/_components/full-page-loader/fullPageLoader";
 import { toast } from "sonner";
-import { api } from "api/api";
+import { apiJobs } from "api/api";
 
 
 function JobDetails() {
@@ -19,7 +19,7 @@ useEffect(() => {
   const load = async () => {
     try {
       setLoading(true);
-        const { data } = await api.get<IJobFromAPI>(
+        const { data } = await apiJobs.get<IJobFromAPI>(
           `/jobs/${id}`
         );
 

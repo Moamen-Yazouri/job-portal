@@ -1,6 +1,6 @@
 import CategoryCard from './catCard';
 import { useContext, useEffect, useState } from 'react';
-import { api } from 'api/api';
+import { apiCats } from 'api/api';
 import type { ICardItem, ICategoryFromAPI } from '~/@types';
 import { mapCategoriesToCardItems } from './cats.utils';
 import { toast } from 'sonner';
@@ -20,7 +20,7 @@ const AllCats = () => {
       try {
         setLoading(true);
 
-        const { data } = await api.get<ICategoryFromAPI[]>(
+        const { data } = await apiCats.get<ICategoryFromAPI[]>(
           "/categories",
         );
 

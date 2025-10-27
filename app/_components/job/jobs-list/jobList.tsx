@@ -4,7 +4,7 @@ import type { IJobFromAPI, TJobForDisplay } from "~/@types";
 import { JobTable } from "./jobsTable";
 import FullPageLoader from "../../full-page-loader/fullPageLoader";
 import { toast } from "sonner";
-import { api } from "api/api";
+import { apiJobs } from "api/api";
 
 
 const JobList = () => {
@@ -19,7 +19,7 @@ const JobList = () => {
       try {
         setLoading(true);
 
-        const {data} = await api.get<IJobFromAPI[]>(
+        const {data} = await apiJobs.get<IJobFromAPI[]>(
           "/jobs",
         );
         console.log(data)
