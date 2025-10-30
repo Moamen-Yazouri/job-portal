@@ -1,16 +1,30 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { mapJobsToDisplay } from "../utils/resMapper.util";
 import type { IJobFromAPI, TJobForDisplay } from "~/@types";
 import { JobTable } from "./jobsTable";
 import FullPageLoader from "../../full-page-loader/fullPageLoader";
 import { toast } from "sonner";
 import { apiJobs } from "api/api";
+import { useLocation } from "react-router-dom";
+import { normalizeDisplayName } from "~/_components/landing/popular/cats.utils";
 
 
 const JobList = () => {
   const [jobs, setJobs] = useState<TJobForDisplay[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  //   const { state } = useLocation();
+  // const cat = (state?.cat ?? null) as string | null;
 
+  
+  // const rows = useMemo(() => {
+  //   if (!cat) return jobs;
+      
+  //   return jobs.filter((job) => {
+  //     console.log(job.jobCategory)
+  //     return normalizeDisplayName(job.jobCategory || "") === cat 
+  //   }
+  //   );
+  // }, [jobs, cat]);
   useEffect(() => {
 
     let ignore = false;

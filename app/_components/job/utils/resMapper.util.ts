@@ -10,7 +10,11 @@ export function mapJobToDisplay(res: IJobFromAPI): TJobForDisplay {
     salary: res.salary ?? res.salaryRange ?? "",
     description: res.description ?? res.jobDescription ?? "",
     requirements: res.requirements ?? [],
-    createdAt: res.createdAt
+    createdAt: res.createdAt ?? "",
+    companyWebsite: res.companyWebsite ?? "",
+    jobCategory: res.jobCategory ?? "",
+    featured: res.featured ?? "",
+    experience: res.experience ?? "",
   };
 }
 

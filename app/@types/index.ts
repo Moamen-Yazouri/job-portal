@@ -49,6 +49,10 @@ export type TJobForDisplay = Pick<
   |'description'
   |'requirements'
   | 'createdAt'
+  | 'companyWebsite'
+  | 'jobCategory'
+  | 'featured'
+  | 'experience'
 >;
 
 export interface ICategoryFromAPI {

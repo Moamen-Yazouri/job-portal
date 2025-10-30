@@ -2,12 +2,22 @@ import { Eye, Pencil, Trash2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import type { TJobForDisplay } from "~/@types";
 import { formatDate } from "../utils/formate.util";
+import { apiJobs } from "api/api";
+import { toast } from "sonner";
 
 interface IProps {
   items: TJobForDisplay[];
 }
-
+const deleteJob = async (id: string) => {
+  try {
+    await apiJobs.delete(`/jobs/${id}`);
+    toast.success("Job deleted successfully");
+  } catch (err) {
+    toast.error("Error deleting job");
+  }
+}
 export function JobTable({ items }: IProps) {
+  console.log(items)
   return (
     <div className="px-20 my-6">
       <div className="overflow-hidden rounded-lg border border-gray-300 shadow-sm">
@@ -65,7 +75,8 @@ export function JobTable({ items }: IProps) {
                       </Link>
 
                       <Link
-                        to={`/jobs/${job.id}/edit`}
+                        to={`/jobs/create-job`}
+                        state={{job}}
                         className="bg-transparent p-1.5 text-green-600 hover:text-green-800 transition-colors inline-flex items-center"
                         aria-label="Edit job"
                         title="Edit"
@@ -77,6 +88,7 @@ export function JobTable({ items }: IProps) {
                         className="!bg-transparent p-1.5 text-red-600 hover:text-red-800 transition-colors"
                         aria-label="Delete job"
                         title="Delete"
+                        onClick={() => deleteJob(job.id)}
                       >
                         <Trash2 className="h-5 w-5" />
                       </button>
