@@ -23,9 +23,9 @@ const AllFeatures = () => {
         const { data } = await apiJobs.get<IJobFromAPI[]>(
           "/jobs",
         );
-
-        const mapped = mapJobsToDisplay(Array.isArray(data) ? data : []);
-        const top5 = mapped.slice(0, 5); // clearer than mutating length
+        const features = data.filter(j => j.featured)
+        const mapped = mapJobsToDisplay(Array.isArray(features) ? features : []);
+        const top5 = mapped.slice(0, 5); 
         if (!ignore) {
           setJobs(mapped);
           setAPIJobs(top5);
